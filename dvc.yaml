@@ -20,3 +20,12 @@ stages:
     - scripts/data_scripts/4_change_text_to_numeric.py
     outs:
     - data/stage3
+  split:
+    cmd: python scripts/data_scripts/5_train_test_split.py data/stage3/train.csv
+    deps:
+    - data/stage3/train.csv
+    - scripts/data_scripts/5_train_test_split.py
+    params:
+    - split.split_ratio
+    outs:
+    - data/stage4
