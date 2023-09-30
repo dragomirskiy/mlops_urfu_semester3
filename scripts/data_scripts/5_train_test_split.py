@@ -6,12 +6,16 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 import sys
 import pickle
+import yaml
+import os
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         sys.stderr.write("Arguments error. Usage:\n")
         sys.stderr.write("\tpython3 get_features.py data-file\n")
         sys.exit(1)
+    
+    os.makedirs(os.path.join("data", "stage4"), exist_ok=True)
 
     stage3_file = sys.argv[1]
     stage3_data = pd.read_csv(stage3_file)
@@ -19,14 +23,11 @@ if __name__ == "__main__":
     X = stage3_data[['Feature1', 'Feature2']]
     y = stage3_data['Target']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    params = yaml.safe_load(open("params.yaml"))["split"]
+    p_split_ratio = params["split_ratio"]
 
-    model = DecisionTreeClassifier(random_state=42)
-    model.fit(X_train, y_train)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=p_split_ratio, random_state=42)
+    
 
-    with open('../../models/model.pkl', 'wb') as model_file:
-        pickle.dump(model, model_file)
-
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    print(f"Точность модели: {accuracy:.2f}")
+    pd.concat([X_train, y_train], axis=1).to_csv(os.path.join("data", "stage4", "train.csv"), header=None, index=None)
+    pd.concat([X_test, y_test], axis=1).to_csv(os.path.join("data", "stage4", "test.csv"), header=None, index=None)

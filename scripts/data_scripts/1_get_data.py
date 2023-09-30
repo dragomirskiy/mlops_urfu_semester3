@@ -17,11 +17,12 @@ def generate_random_dataset():
     return df
 
 dataset = generate_random_dataset()
-dataset.to_csv('../../data/dataset.csv', index=False)
+dataset.to_csv('data/dataset.csv', index=False)
 
 train_df, test_df = train_test_split(dataset, test_size=0.2, random_state=42)
-train_df.to_csv('../../data/raw/train.csv', index=False)
-test_df.to_csv('../../data/raw/test.csv', index=False)
+train_df.to_csv('data/raw/train.csv', index=False)
+test_df.to_csv('data/raw/test.csv', index=False)
+
 
 print("Сгенерированный датасет сохранен в dataset.csv")
 print("Тренировочная и тестовая выборки сохранены в train.csv и test.csv")
