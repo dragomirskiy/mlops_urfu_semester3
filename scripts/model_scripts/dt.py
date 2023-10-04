@@ -19,6 +19,7 @@ if __name__ == "__main__":
 
     params = yaml.safe_load(open("params.yaml"))["train"]
     p_seed = params["seed"]
+    p_max_depth = params["max_depth"]
 
     df = pd.read_csv(sys.argv[1], header=None)
     print(type(df), df.shape)
@@ -27,7 +28,7 @@ if __name__ == "__main__":
     y_train = df.iloc[:,-1]
 
     # Обучение модели (пример с DecisionTreeClassifier)
-    model = DecisionTreeClassifier(random_state=p_seed)
+    model = DecisionTreeClassifier(max_depth=p_max_depth, random_state=p_seed)
     model.fit(X_train, y_train)
     
 

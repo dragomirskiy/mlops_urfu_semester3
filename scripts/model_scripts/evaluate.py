@@ -15,11 +15,6 @@ if __name__ == "__main__":
         sys.stderr.write("Arguments error. Usage:\n")
         sys.stderr.write("\tpython3 get_features.py data-file\n")
         sys.exit(1)
-    
-
-    params = yaml.safe_load(open("params.yaml"))["train"]
-    p_seed = params["seed"]
-    p_max_depth = params["max_depth"]
 
     df = pd.read_csv(sys.argv[1], header=None)
     print(type(df), df.shape)
