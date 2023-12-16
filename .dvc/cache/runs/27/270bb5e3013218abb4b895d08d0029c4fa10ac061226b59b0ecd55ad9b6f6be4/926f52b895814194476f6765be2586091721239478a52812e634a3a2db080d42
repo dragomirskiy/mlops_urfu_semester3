@@ -1,0 +1,19 @@
+cmd: python scripts/model_scripts/evaluate.py data/stage4/test.csv model.pkl
+deps:
+- path: data/stage4/test.csv
+  hash: md5
+  md5: 858e1eb6bda76efd634701f2f9331778
+  size: 1099
+- path: models/model.pkl
+  hash: md5
+  md5: bd2c012d1c93001c28bc3df1037a8c53
+  size: 2967
+- path: scripts/model_scripts/evaluate.py
+  hash: md5
+  md5: a4bb987a3b0e78abb6de947086d32591
+  size: 983
+outs:
+- path: evaluate/score.json
+  hash: md5
+  md5: ffd97615e10a31945b42dca7f5ae80bf
+  size: 14

@@ -1,0 +1,19 @@
+cmd: python scripts/data_scripts/5_train_test_split.py data/stage3/train.csv
+deps:
+- path: data/stage3/train.csv
+  hash: md5
+  md5: 3c2b9fa965dac88dc52437a9264c1ed8
+  size: 3689
+- path: scripts/data_scripts/5_train_test_split.py
+  hash: md5
+  md5: d68b2bbe15701d1de0828358c2f9aa7a
+  size: 1311
+params:
+  params.yaml:
+    split.split_ratio: 0.3
+outs:
+- path: data/stage4
+  hash: md5
+  md5: e31a300fbd91e3a2c92f4916ae660606.dir
+  size: 3689
+  nfiles: 1

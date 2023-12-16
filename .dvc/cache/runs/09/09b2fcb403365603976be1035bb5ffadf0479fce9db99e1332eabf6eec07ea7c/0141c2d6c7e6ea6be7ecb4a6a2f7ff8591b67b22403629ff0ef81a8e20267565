@@ -1,0 +1,16 @@
+cmd: python scripts/data_scripts/2_get_features.py data/raw/train.csv
+deps:
+- path: data/raw/train.csv
+  hash: md5
+  md5: 9a2c28da0eca0df52a18df71f64a6aa2
+  size: 3757
+- path: scripts/data_scripts/2_get_features.py
+  hash: md5
+  md5: 9889f3c4524e255771b05258c69f947b
+  size: 779
+outs:
+- path: data/stage1
+  hash: md5
+  md5: ee4916b9d82ac956b34df9df4289780e.dir
+  size: 3689
+  nfiles: 1

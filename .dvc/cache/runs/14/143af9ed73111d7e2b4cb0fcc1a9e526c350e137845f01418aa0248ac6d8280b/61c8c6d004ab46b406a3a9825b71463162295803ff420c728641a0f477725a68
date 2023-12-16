@@ -1,0 +1,16 @@
+cmd: python scripts/data_scripts/4_change_text_to_numeric.py data/stage2/train.csv
+deps:
+- path: data/stage2/train.csv
+  hash: md5
+  md5: d2e9268924ecfd7c389bd6b97779e526
+  size: 3689
+- path: scripts/data_scripts/4_change_text_to_numeric.py
+  hash: md5
+  md5: d84cd384ec84aabcbac95b02abda5bf0
+  size: 888
+outs:
+- path: data/stage3
+  hash: md5
+  md5: e31a300fbd91e3a2c92f4916ae660606.dir
+  size: 3689
+  nfiles: 1

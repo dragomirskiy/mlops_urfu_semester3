@@ -1,0 +1,19 @@
+cmd: python scripts/model_scripts/dt.py data/stage4/train.csv model.pkl
+deps:
+- path: data/stage4/train.csv
+  hash: md5
+  md5: f155f2dc18bf172349a9f0c4d6a6e77d
+  size: 2565
+- path: scripts/model_scripts/dt.py
+  hash: md5
+  md5: f478fa155a49ef1606c7022bc0ae8a59
+  size: 1195
+params:
+  params.yaml:
+    train.max_depth: 4
+    train.seed: 42
+outs:
+- path: models/model.pkl
+  hash: md5
+  md5: e0c1c713d0ccaa542f744eb9f85e5109
+  size: 8355
