@@ -1,7 +1,0 @@
-[core]
-    remote = ssh-storage
-['remote "ssh-storage"']
-    url = ssh://user-data-srv@10.0.2.4/opt/datasets_for_mlops
-    password = vfcktybwf1
-    user = user-data-srv
-    port = 22
